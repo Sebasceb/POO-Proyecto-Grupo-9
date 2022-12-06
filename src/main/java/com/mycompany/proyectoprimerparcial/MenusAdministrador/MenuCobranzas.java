@@ -8,11 +8,9 @@ class MenuCobranzas {
     public ArrayList<Cliente> listaClientes;
     double ganancia = 0;
     public ArrayList<Orden> listaOrdenes;
-    
     public String codEmpresa;
     public String anio;
     public String mes;
-    public ArrayList<Orden> listaOrdenes;
     public ArrayList<Orden> ordenesFinal;
     
  

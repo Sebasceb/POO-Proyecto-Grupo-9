@@ -4,12 +4,23 @@
  */
 
 package com.mycompany.proyectoprimerparcial;
-
+import com.mycompany.proyectoprimerparcial.MenusAdministrador.Cliente;
+import com.mycompany.proyectoprimerparcial.MenusAdministrador.Orden;
+import com.mycompany.proyectoprimerparcial.MenusAdministrador.Proveedor;
+import com.mycompany.proyectoprimerparcial.MenusAdministrador.Servicio;
+import com.mycompany.proyectoprimerparcial.MenusAdministrador.Usuario;
+import java.util.ArrayList;
+import java.util.Scanner;
 /**
  *
  * @author Sebasceb
  */
 public class ProyectoPrimerParcial {
+    public ArrayList<Cliente> listaClientes;
+    public ArrayList<Proveedor> listaProveedores;
+    public ArrayList<Servicio> listaServicios;
+    public ArrayList<Usuario> listaUsuarios;
+    public ArrayList<Orden> listaOrdenes;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
