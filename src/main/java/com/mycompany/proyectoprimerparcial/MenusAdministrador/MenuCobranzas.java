@@ -16,7 +16,7 @@ class MenuCobranzas {
     public ArrayList<Orden> ordenesFinal;
     
  
-  public static void main(String[] args) {
+  public void menuPrincipal() {
     Scanner sc = new Scanner(System.in);
     boolean salir = false;
     int opcion;
@@ -79,7 +79,7 @@ class MenuCobranzas {
       }
     }
     sn.close();
-    MenuCobranzas();
+    menuPrincipal();
   }  
   public void recaudacionTecnicos(){
     Scanner sn = new Scanner(System.in);
@@ -107,7 +107,7 @@ class MenuCobranzas {
       } 
     }
     sn.close();
-    MenuCobranzas();
+    menuPrincipal();
   }
     public void generarFacturasEmpresas(){
         Scanner sn = new Scanner(System.in);
@@ -146,7 +146,7 @@ class MenuCobranzas {
           System.out.println("Total a pagar: "+totalPagar);
         }
       sn.close();
-      MenuCobranzas();
+      menuPrincipal();
     }
 
 }
