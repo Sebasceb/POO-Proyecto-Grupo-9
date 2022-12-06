@@ -20,5 +20,8 @@ public class Proveedor {
       this.direccion=d;
       this.telefono=t;
     }
+    public String getCodigo(){
+      return codigo;
+    }
     
 }
