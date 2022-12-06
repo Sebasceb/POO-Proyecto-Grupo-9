@@ -39,7 +39,7 @@ public class AdministrarAdmin {
     }
     
     
-    listaProveedor();
+
     
     public void listaProveedor() {
         System.out.println("\nLos Proveedores son: ");
@@ -70,6 +70,7 @@ public class AdministrarAdmin {
 
         this.proveedores.add(proveedorsub);
 
+        listaProveedor();
     }
     
     
