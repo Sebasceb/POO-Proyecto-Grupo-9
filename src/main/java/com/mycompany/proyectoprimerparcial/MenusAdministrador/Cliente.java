@@ -21,4 +21,7 @@ public class Cliente extends Proveedor{
       this.tipo=tipo;
       
     }
+    public String getNombre(){
+      return nombre;
+    }
 }
