@@ -4,14 +4,17 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 class MenuCobranzas {
-    public ArrayList<Usuario> listaTecnicos;
+    public ArrayList<Usuario> listaUsuarios;
+    public ArrayList<Cliente> listaClientes;
     double ganancia = 0;
     public ArrayList<Orden> listaOrdenes;
+    
+    public String codEmpresa;
+    public String anio;
+    public String mes;
+    public ArrayList<Orden> listaOrdenes;
     public ArrayList<Orden> ordenesFinal;
-    int cantidades = 0;
-    public int codEmpresa;
-    public int anio;
-    public int mes;
+    
  
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
@@ -31,12 +34,15 @@ class MenuCobranzas {
       switch(opcion){
         case 1:
           System.out.println("Opcion 1");
+          this.generarFacturasEmpresas();
           break;
         case 2:
           System.out.println("Opcion 2");
+          this.ingresosServicios();
           break;
         case 3:
           System.out.println("Opcion 3");
+          this.recaudacionTecnicos();
           break;
         case 4:
           System.out.println("Opcion 4");
@@ -49,6 +55,32 @@ class MenuCobranzas {
           
     }
   }
+
+  public void ingresosServicios(){
+    Scanner sn = new Scanner(System.in);
+    ArrayList<Orden> listaOrdenes2 = (ArrayList<Orden>)listaOrdenes.clone();
+    
+    System.out.println("Ingrese año a consultar: ");
+    int anio = sn.nextInt();
+    sn.nextLine();
+    System.out.println("Ingrese mes a consultar: ");
+    int mes = sn.nextInt();
+    sn.nextLine();
+    System.out.println("Servicio          Total");
+    
+    for(int i=0;i<listaOrdenes2.size();i++){
+      Orden other = listaOrdenes2.remove(i);
+      int ind = listaOrdenes2.indexOf(other);
+      Orden other2 = listaOrdenes2.get(ind);
+      
+      if(other.getMes() == mes && other.getServicio() == other2.getServicio()){
+        int cantidades += other.getCantidad() + other2.getCantidad();
+        System.out.println(other.getServicio+"          "+(other.getPrecio()*cantidades);  
+      }
+    }
+    sn.close();
+    MenuCobranzas();
+  }  
   public void recaudacionTecnicos(){
     Scanner sn = new Scanner(System.in);
 
@@ -61,12 +93,10 @@ class MenuCobranzas {
 
     System.out.println("Técnico          Total");
     
-    for(int i=0;listaTecnicos.size();i++){
-      Tecnico tc = listaTecnicos.get(i);
-      ArrayList<Orden> listaOrdenes = tc.getOrdenes();
-      
+    for(int i=0;i<listaUsuarios.size();i++){
+      Usuario tc = listaUsuarios.get(i);
       for(Orden od: listaOrdenes){
-        modelo.Servicio sv = od.getServicio();
+        Servicio sv = od.getServicio();
         
         if(od.getMes() == mes){
           double precio = sv.getPrecio();
@@ -76,32 +106,47 @@ class MenuCobranzas {
         System.out.println(tc.getNombre()+"          "+ganancia); 
       } 
     }
+    sn.close();
+    MenuCobranzas();
   }
     public void generarFacturasEmpresas(){
         Scanner sn = new Scanner(System.in);
-
+    
         System.out.println("Ingrese los siguientes datos");
-        System.out.println("Codigo de la empresa: ");
-        codEmpresa = sn.nextInt();
-        sn.nextLine();
-        System.out.println("Año y mes a consultar (mm-aa): ");
-        anio = sn.nextInt();
-        mes = sn.nextInt();
-
-        //Orden os = new Orden(codEmpresa,fecha,1,"GBGNG",ArrayList<Servicio> servicios,cantidad);
-        System.out.println("Empresa: ");
-        System.out.println("Periodo de facturación: "+mes+" "+anio);
-        System.out.println("Detalle de servicios: ");
-        System.out.println("#Placa      Fecha    Tipo    Servicio    Cantidad      Total");
-        for(Orden od:listaOrdenes){
-          if(od.getCodigo()==codEmpresa && od.getMes()==mes){
-            System.out.println(od.getPlaca+"    "+od.getFecha+"    "+od.getTipo+"    "+od.getServicio+"    "+od.getCantidad+"    "+od.getPago);
-            int totalPagar += od.getPago;
-          } 
+        System.out.println("Año a consultar: ");
+        anio = sn.nextLine();
+        System.out.println("Mes a consultar: ");
+        mes = sn.nextLine();
+        int flag = 0;
+        while(flag == 0){
+          System.out.println("Codigo de la empresa: ");
+          codEmpresa = sn.nextLine();
+          for(Cliente cl:listaClientes){
+            if((cl.getCodigo()).equals(codEmpresa) && (cl.tipo).equals(TipoCliente.EMPRESARIAL)){
+              flag = 1;
+            }else{
+              System.out.println("Ingrese de nuevo el codigo");
+            }
+          }
+        }
+        Cliente c = new Cliente(codEmpresa,"","","");
+        if(listaClientes.contains(c)){
+          int ind = listaClientes.indexOf(c);
+          Cliente empresa = listaClientes.get(ind);
+          System.out.println("Empresa: "+empresa.getNombre());
+          System.out.println("Periodo de facturación: "+mes+"-"+anio);
+          System.out.println("Detalle de servicios: ");
+          System.out.println("#Placa      Fecha    Tipo    Servicio    Cantidad      Total");
+          for(Orden od:listaOrdenes){
+              if(od.getMes()==mes){
+                System.out.println(od.getPlaca()+"    "+od.getFecha()+"    "+od.getTipo()+"    "+od.getServicio());
+                int totalPagar += od.getPrecio() * od.getCantidad;
+              } 
+          }
           System.out.println("Total a pagar: "+totalPagar);
         }
-    
+      sn.close();
+      MenuCobranzas();
     }
-    
-  }
+
 }
