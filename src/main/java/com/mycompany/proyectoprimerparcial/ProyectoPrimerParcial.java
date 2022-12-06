@@ -12,6 +12,49 @@ package com.mycompany.proyectoprimerparcial;
 public class ProyectoPrimerParcial {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese su usuario:");
+        String usuario = sc.nextLine();
+        System.out.println("Ingrese su contraseña:");
+        String contrasena = sc.nextLine();
+       // Usuario login = new Usuario(usuario, contrasena);
+        
+        for (Usuario u : Usuario.getListaUsuarios()){
+            if(usuario.compareTo(u.getUsuario())== 0){
+                if(contrasena.compareTo(u.getContrasena())==0){
+                    if(u.getNivel() == TipoUsuario.ADMIN){
+                        menuAdmin.menuPrincipal();
+                    }else if(u.getNivel() == TipoUsuario.COBRANZA){
+                        menuCobranza.menuPrincipal();
+                    }else{
+                        menuTecnico.menuPrincipal();
+                    }
+                }else{
+                    System.out.println("Contraseña incorrecta");
+                }
+            }else{
+                System.out.println("No existe el usuario");
+                }
+            }
+        }
+        
+        
+      /*  for (Usuario u : Usuario.getListaUsuarios()){
+            if(login.usuario.equals(u.getUsuario())){
+                if(login.contrasena.equals(u.getContrasena())){
+                    if(u.getNivel() == TipoUsuario.ADMIN){
+                        menuAdmin.menuPrincipal();
+                    }else if(u.getNivel() == TipoUsuario.COBRANZA){
+                        menuCobranza.menuPrincipal();
+                    }else{
+                        menuTecnico.menuPrincipal();
+                    }
+                }else{
+                    System.out.println("Contraseña incorrecta");
+                }
+            }else{
+                System.out.println("No existe el usuario");
+            }
+       */ }
     }
 }
