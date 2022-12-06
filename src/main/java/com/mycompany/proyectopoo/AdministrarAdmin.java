@@ -38,6 +38,9 @@ public class AdministrarAdmin {
         return tecnicos;
     }
     
+    
+    listaProveedor();
+    
     public void listaProveedor() {
         System.out.println("\nLos Proveedores son: ");
         if(!proveedores.isEmpty()){
@@ -67,7 +70,6 @@ public class AdministrarAdmin {
 
         this.proveedores.add(proveedorsub);
 
-        listaProveedor();
     }
     
     
