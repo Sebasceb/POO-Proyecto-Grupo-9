@@ -9,9 +9,9 @@ import java.util.*;
  * @author Sebasceb
  */
 public class MenuAdmin {
-   public ArrayList<Cliente> listaClientes;
-  public ArrayList<Proveedor> listaProveedores;
-  public ArrayList<Servicio> listaServicios;
+    public ArrayList<Cliente> listaClientes;
+    public ArrayList<Proveedor> listaProveedores;
+    public ArrayList<Servicio> listaServicios;
   
   /*
   public MenuAdmin(String u, String c, String n, String ni){
@@ -71,7 +71,6 @@ public class MenuAdmin {
       }
     }
     sc.close();
-    return;
   }
 
   public void administrarProveedor(){
@@ -81,6 +80,38 @@ public class MenuAdmin {
     int a= 0;
     while(a!=1 && a!=2){
       System.out.println("1. Agregar Proveedor \n2. Regresar a menú principal");
+      a= sc.nextInt();
+      sc.nextLine(); 
+      if(a==2){
+        sc.close();
+        return;
+      }
+      if(a==1){
+        System.out.println("Ingrese el nombre del proveedor: ");
+        String nombre= sc.nextLine();
+
+        System.out.println("Ingrese la dirección del proveedor: ");
+        String direccion= sc.nextLine();
+
+        System.out.println("Ingrese el numero de teléfono del proveedor: ");
+        String telefono= sc.nextLine();
+
+        String codigo= "Falta hacer codigo";
+    
+        listaProveedores.add(new Proveedor(codigo, nombre, direccion, telefono)); 
+      }
+    }
+    sc.close();
+    
+  }
+
+  public void administrarServicios(){
+    System.out.println(listaProveedores);
+
+    Scanner sc = new Scanner(System.in);
+    int a= 0;
+    while(a!=1 && a!=2){
+      System.out.println("1. Agregar Servicio \n2. Regresar a menú principal");
       a= sc.nextInt();
       sc.nextLine(); 
       if(a==2){
@@ -100,12 +131,8 @@ public class MenuAdmin {
       }
     }
     sc.close();
-    return;
     
-  }
-
-  public void administrarServicios(){
-    
+  
   }
     
 }

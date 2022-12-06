@@ -8,17 +8,6 @@ package com.mycompany.proyectoprimerparcial.MenusAdministrador;
  *
  * @author Sebasceb
  */
-public class Cliente extends Proveedor{
-    public TipoCliente tipo;
-
-    public Cliente(String c, String n, String d, String t){
-      super(c,n,d,t);
-      
-    }
+public class MenuTecnico {
     
-    public Cliente(String c, String n, String d, String t,TipoCliente tipo){
-      super(c,n,d,t);
-      this.tipo=tipo;
-      
-    }
 }
