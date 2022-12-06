@@ -13,11 +13,13 @@ public class MenuAdmin {
     public ArrayList<Proveedor> listaProveedores;
     public ArrayList<Servicio> listaServicios;
   
-  /*
-  public MenuAdmin(String u, String c, String n, String ni){
-    super(u,c,n,ni);
-  }
-  */
+  
+    public MenuAdmin(ArrayList<Cliente> c, ArrayList<Proveedor> p,ArrayList<Servicio> s ){
+      this.listaClientes=c;
+      this.listaProveedores=p;
+      this.listaServicios=s;
+    }
+  
 
 
   public void menuPrincipal(){

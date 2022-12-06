@@ -1,6 +1,6 @@
 package com.mycompany.proyectoprimerparcial.MenusAdministrador;
 
-public abstract class Usuario{
+public class Usuario{
   public String usuario;
   public String contraseña;
   public String nombre;

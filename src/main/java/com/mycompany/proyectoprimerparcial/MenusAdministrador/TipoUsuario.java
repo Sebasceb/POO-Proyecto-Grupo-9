@@ -9,5 +9,5 @@ package com.mycompany.proyectoprimerparcial.MenusAdministrador;
  * @author Sebasceb
  */
 public enum TipoUsuario {
-    ADMIN, COBRANZAS, TECNICO;
+    Admin, Cobranzas, Tecnico;
 }

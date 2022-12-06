@@ -8,6 +8,6 @@ package com.mycompany.proyectoprimerparcial.MenusAdministrador;
  *
  * @author Sebasceb
  */
-public enum TipoCliente {
-    Personal, Empresarial;
+public enum TipoVehiculo {
+    Automóvil, Motocicleta, Bus;
 }
