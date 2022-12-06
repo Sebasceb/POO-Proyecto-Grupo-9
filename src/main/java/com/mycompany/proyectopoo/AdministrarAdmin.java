@@ -65,7 +65,6 @@ public class AdministrarAdmin {
         
         Proveedor proveedorsub = new Proveedor(codigo, nombre, direccion, telefono);
 
-        //Despues, agregamos el nuevo empleado a la lista empleados
         this.proveedores.add(proveedorsub);
 
         listaProveedor();
