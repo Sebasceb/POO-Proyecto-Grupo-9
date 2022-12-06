@@ -1,25 +1,17 @@
 package com.mycompany.proyectoprimerparcial.MenusAdministrador;
 
-public class Usuario{
-  public String usuario;
-  public String contraseña;
-  public String nombre;
-  public TipoUsuario nivel;
-
-  Usuario(String usuario, String contraseña, String nombre, TipoUsuario nivel){
-    this.usuario = usuario;
-    this.contraseña = contraseña;
-    this.nombre = nombre;
-    this.nivel = nivel;
-  }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public String getContraseña() {
-        return contraseña;
-    }
+import java.util.ArrayList;
+/**
+ *
+ * @author Usuario
+ */
+public class Usuario {
+    //atributos
+    public String usuario;
+    public String contrasena;
+    public String nombre;
+    public TipoUsuario nivel;
+    public static ArrayList<Usuario> listaUsuarios;
 
     public String getNombre() {
         return nombre;
@@ -29,20 +21,41 @@ public class Usuario{
         return nivel;
     }
 
-    public void setUsuario(String usuario) {
+    public static ArrayList<Usuario> getListaUsuarios() {
+        return listaUsuarios;
+    }
+    
+    
+    //getterssetters
+    public void setUsuario(String usuario){
         this.usuario = usuario;
     }
-
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public String getUsuario(){
+        return usuario;
     }
-
-    public void setNombre(String nombre) {
+    public void setContrasena(String contrasena){
+        this.contrasena = contrasena;
+    }
+    public String getContrasena(){
+        return contrasena;
+    }
+    
+    //constructor
+    public Usuario(String usuario, String contrasena){
+        this.usuario = usuario;
+        this.contrasena = contrasena;
+    }
+    
+    public Usuario(String usuario, String contrasena, String nombre, TipoUsuario nivel){
+        this.usuario = usuario;
+        this.contrasena = contrasena;
         this.nombre = nombre;
-    }
-
-    public void setNivel(TipoUsuario nivel) {
         this.nivel = nivel;
     }
-  
+    
+    @Override
+    public boolean equals (Object u) {
+        return (this.usuario.equals(((Usuario)u).usuario) && this.contrasena==((Usuario)u).contrasena);    
+    }
+    
 }
