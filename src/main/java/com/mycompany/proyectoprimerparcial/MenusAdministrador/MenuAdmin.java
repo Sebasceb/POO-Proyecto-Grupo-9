@@ -3,12 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.proyectoprimerparcial.MenusAdministrador;
+import com.mycompany.proyectoprimerparcial.ProyectoPrimerParcial;
 import java.util.*;
 /**
  *
  * @author Sebasceb
  */
 public class MenuAdmin {
+    /*
     public ArrayList<Cliente> listaClientes;
     public ArrayList<Proveedor> listaProveedores;
     public ArrayList<Servicio> listaServicios;
@@ -19,8 +21,8 @@ public class MenuAdmin {
       this.listaProveedores=p;
       this.listaServicios=s;
     }
+    */
   
-
 
   public void menuPrincipal(){
     int check=0;
@@ -45,7 +47,7 @@ public class MenuAdmin {
   }
   
   public void administrarCliente(){
-    System.out.println(listaClientes);
+    System.out.println(ProyectoPrimerParcial.accederClientes());
 
     Scanner sc = new Scanner(System.in);
     int a= 0;
@@ -69,14 +71,14 @@ public class MenuAdmin {
         
         String codigo= "Falta hacer codigo";
     
-        listaClientes.add(new Cliente(codigo, nombre, direccion, telefono)); 
+        ProyectoPrimerParcial.agregarCliente(new Cliente(codigo, nombre, direccion, telefono)); 
       }
     }
     sc.close();
   }
 
   public void administrarProveedor(){
-    System.out.println(listaProveedores);
+    System.out.println(ProyectoPrimerParcial.accederProveedores());
 
     Scanner sc = new Scanner(System.in);
     int a= 0;
@@ -100,7 +102,7 @@ public class MenuAdmin {
 
         String codigo= "Falta hacer codigo";
     
-        listaProveedores.add(new Proveedor(codigo, nombre, direccion, telefono)); 
+        ProyectoPrimerParcial.agregarProveedor(new Proveedor(codigo, nombre, direccion, telefono)); 
       }
     }
     sc.close();
@@ -108,7 +110,7 @@ public class MenuAdmin {
   }
 
   public void administrarServicios(){
-    System.out.println(listaProveedores);
+    System.out.println(ProyectoPrimerParcial.accederServicios());
 
     Scanner sc = new Scanner(System.in);
     int a= 0;
@@ -129,7 +131,7 @@ public class MenuAdmin {
         
         String codigo= "Falta hacer codigo";
     
-        listaServicios.add(new Servicio(codigo, nombre, servicio)); 
+        ProyectoPrimerParcial.agregarServicio(new Servicio(codigo, nombre, servicio)); 
       }
     }
     sc.close();
