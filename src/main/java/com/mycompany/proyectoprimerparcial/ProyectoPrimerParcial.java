@@ -16,11 +16,44 @@ import java.util.Scanner;
  * @author Sebasceb
  */
 public class ProyectoPrimerParcial {
-    public ArrayList<Cliente> listaClientes;
-    public ArrayList<Proveedor> listaProveedores;
-    public ArrayList<Servicio> listaServicios;
-    public ArrayList<Usuario> listaUsuarios;
-    public ArrayList<Orden> listaOrdenes;
+    public static ArrayList<Cliente> listaClientes;
+    public static ArrayList<Proveedor> listaProveedores;
+    public static ArrayList<Servicio> listaServicios;
+    public static ArrayList<Usuario> listaUsuarios;
+    public static ArrayList<Orden> listaOrdenes;
+    
+    
+    public static void agregarCliente(Cliente c){
+        listaClientes.add(c);
+    }
+    public static void agregarProveedor(Proveedor p){
+        listaProveedores.add(p);
+    }
+    public static void agregarServicio(Servicio s){
+        listaServicios.add(s);
+    }
+    public static void agregarUsuario(Usuario u){
+        listaUsuarios.add(u);
+    }
+    public static void agregarOrden(Orden o){
+        listaOrdenes.add(o);
+    }
+    
+    public static ArrayList<Cliente> accederClientes(){
+        return listaClientes;    
+    }
+    public static ArrayList<Proveedor> accederProveedores(){
+        return listaProveedores;    
+    }
+    public static ArrayList<Servicio> accederServicios(){
+        return listaServicios;    
+    }
+    public static ArrayList<Usuario> accederUsuarios(){
+        return listaUsuarios;    
+    }
+    public static ArrayList<Orden> accederOrdenes(){
+        return listaOrdenes;    
+    }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
